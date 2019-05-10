@@ -1,4 +1,9 @@
 Shopping cart
 
 Install:
-1) npm install
+
+FE:
+1) cd client && npm install
+
+BE:
+1) cd server && npm install
