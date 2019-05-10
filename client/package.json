@@ -10,7 +10,7 @@
   },
   "scripts": {
     "gulp": "gulp default",
-    "gulp_build": "gulp build", 
+    "gulp_build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ol'ga",

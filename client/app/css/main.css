@@ -33,7 +33,7 @@ h1 {
   color: #2d3436;
 }
 .btn-outline-primary:active {
-  border-color: #2d3436 !important;
+  border-color: 3px solid #2d3436 !important;
   background-color: orange !important;
 }
 .btn-outline-primary:hover {
