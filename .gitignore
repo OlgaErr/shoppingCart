@@ -1,2 +1,8 @@
 # Ignored files #
-node_modules
+
+#Client#
+client/node_modules
+
+#Server#
+server/node_modules
+server/config.js
