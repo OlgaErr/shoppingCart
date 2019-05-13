@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+html {
+  font-size: 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 @background-color: #3dc1d3;
 
 header {
@@ -25,7 +30,7 @@ h1 {
 .lists-board {
   margin: 0 auto;
   height: 100vh;
-  width: 75vw;
+  width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +39,8 @@ h1 {
 
 .mybtn {
   display: block;
-  margin-top: 5rem;
+  position: relative;
+  top: 3.7rem;
   border-radius: 50%;
   height: 3rem;
   font: 2em bolder;
@@ -46,9 +52,11 @@ h1 {
 
 #form {
   display: none;
+  z-index: 0;
   border: 3px solid #3dc1d3;
   border-radius: 1rem;
   margin-bottom: 1rem;
+  margin-top: 4.6rem;
   background-color:#3dc1d3;
   animation-name: animateshow;
   animation-duration: 1s;
@@ -72,3 +80,36 @@ h1 {
   display: block;
   float: right;
 }
+
+.form__spinner {
+  position: relative;
+  top: -13.45rem;
+  display: none;
+  z-index: 1;
+
+}
+
+// // media
+// // Экстрамалые девайсы («портретные телефоны», < 576px)
+// @media (max-width: 575.98px) {
+//   h1 {
+//     font-size: 2.35rem;
+//   }
+// }
+
+// @media (min-width: 576px) and (max-width: 767.98px) {
+
+// }
+
+// @media (min-width: 768px) and (max-width: 991.98px) {
+
+// }
+
+// @media (min-width: 992px) and (max-width: 1199.98px) {
+
+// }
+
+
+// @media (min-width: 1200px) {
+  
+// }

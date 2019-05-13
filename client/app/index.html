@@ -21,19 +21,27 @@
         <div id="form">  
           <form>
             <div class="form-group">
-              <label for="formGroupExampleInput">Title</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter list's name">
+              <label for="formGroupTitle">Title</label>
+              <input type="text" class="form-control" id="formGroupTitle" placeholder="Enter list's name">
             </div>
             <div class="form-group">
-              <label for="formGroupExampleInput2">Comment</label>
-              <textarea name="" class="form-control comments" id="formGroupExampleInput2" cols="30" rows="3" placeholder="Your comment"></textarea>
+              <label for="formGroupTitleComment">Comment</label>
+              <textarea name="" class="form-control comments" id="formGroupTitleComment" cols="30" rows="3" placeholder="Your comment"></textarea>
             </div>
             <div class="form__btn-bar">
             <button type="button" class="btn btn-info btn-bar" onclick="closeForm()">Cancel</button>
-            <button type="button" class="btn btn-info btn-bar" onclick="">Creat</button>
+            <button type="button" class="btn btn-info btn-bar" onclick="create()">Creat</button>
             </div>
           </form>
-        </div>    
+        </div>
+        
+        <div class="spinner-border text-dark form__spinner" role="status" id="form__spinner">
+          <span class="sr-only">Loading...</span>
+        </div> 
+
+        <!-- <div class="alert alert-danger" role="alert">
+          Это уведомление об опасности — check it out!
+        </div> -->
 
       </div>
 
