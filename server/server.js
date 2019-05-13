@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const pg = require('pg');
 const PGClient = require('pg').Client;
-const {pgConfig} = require('./config');
+const { pgConfig } = require('./config');
 
 const client = new PGClient(pgConfig);
 
@@ -265,7 +265,7 @@ app.delete('/api/lists/:list_id/elements/:position_id', function(req, res){
   })
 });
 
-app.use(express.static(__dirname + "/../client/app"));
+app.use(express.static(`${__dirname}/../client/app`));
 
 app.listen(PORT, () => {
   console.log('Server is running at:', PORT);

@@ -1,3 +1,115 @@
-body {
-  background-color: #000;
+* {
+  margin: 0;
+  padding: 0;
 }
+
+html {
+  font-size: 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@background-color: #3dc1d3;
+
+header {
+  background-color: @background-color;
+  text-align: center;
+  text-transform: uppercase;
+  color: #2d3436;
+  position: fixed;
+}
+
+.content {
+  height: 100vh;
+  background: lighten(@background-color, 40%);
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.lists-board {
+  margin: 0 auto;
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: lighten(@background-color, 10%);
+}
+
+.mybtn {
+  display: block;
+  position: relative;
+  top: 3.7rem;
+  border-radius: 50%;
+  height: 3rem;
+  font: 2em bolder;
+}
+
+.comments {
+  resize: none
+}
+
+#form {
+  display: none;
+  z-index: 0;
+  border: 3px solid #3dc1d3;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 4.6rem;
+  background-color:#3dc1d3;
+  animation-name: animateshow;
+  animation-duration: 1s;
+}
+
+@keyframes animateshow {
+  from {opacity:0}
+  to {opacity:1}
+}
+
+.form-group {
+  margin: 1rem;
+}
+
+.form__btn-bar {
+  margin-right: 0.75rem;
+}
+
+.btn-bar {
+  margin: 0 0.25rem 1rem;
+  display: block;
+  float: right;
+}
+
+.form__spinner {
+  position: relative;
+  top: -13.45rem;
+  display: none;
+  z-index: 1;
+
+}
+
+// // media
+// // Экстрамалые девайсы («портретные телефоны», < 576px)
+// @media (max-width: 575.98px) {
+//   h1 {
+//     font-size: 2.35rem;
+//   }
+// }
+
+// @media (min-width: 576px) and (max-width: 767.98px) {
+
+// }
+
+// @media (min-width: 768px) and (max-width: 991.98px) {
+
+// }
+
+// @media (min-width: 992px) and (max-width: 1199.98px) {
+
+// }
+
+
+// @media (min-width: 1200px) {
+  
+// }

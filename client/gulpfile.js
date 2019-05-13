@@ -8,6 +8,11 @@ gulp.task('less', () => gulp.src('app/less/**/*.less') // Берем источ�
   .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
 );
 
+gulp.task('build', () => gulp.src('app/less/**/*.less') // Берем источник
+  .pipe(less()) // Преобразуем less в CSS посредством gulp-less
+  .pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
+);
+
 gulp.task('browser-sync', function() { // Создаем таск browser-sync
   browserSync({ // Выполняем browserSync
       server: { // Определяем параметры сервера
@@ -33,3 +38,4 @@ gulp.task('watch', function() {
   gulp.watch(['app/js/common.js', 'app/libs/**/*.js'], gulp.parallel('scripts')); // Наблюдение за главным JS файлом и за библиотеками
 });
 gulp.task('default', gulp.parallel('less', 'browser-sync', 'watch'));
+
