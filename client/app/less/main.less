@@ -8,6 +8,16 @@ html {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.header__title {
+  text-align: center;
+  padding-right: -0.15rem;
+}
+
+.inline {
+  display: inline;
+  margin-right: 1rem;
+}
+
 @background-color: #3dc1d3;
 
 header {
@@ -16,6 +26,28 @@ header {
   text-transform: uppercase;
   color: #2d3436;
   position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.header__login {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  // img {
+  //   position: relative;
+  //   left: 22rem;
+  //   padding-right: 0.4rem;
+  // }
+  img:hover {  
+    cursor: pointer;
+    outline: 3px solid #2d3436;
+    padding-right: 0.4rem;
+  }
+}
+.btn {
+  margin-right: 0.5rem;
 }
 
 .content {
@@ -37,10 +69,12 @@ h1 {
   background: lighten(@background-color, 10%);
 }
 
+.underHeader {
+  height: 3rem;
+}
 .myBtn {
   display: block;
-  position: relative;
-  top: 3.7rem;
+  margin-top: 1rem;
   border-radius: 50%;
   height: 3rem;
   font: 2em bolder;
@@ -50,13 +84,10 @@ h1 {
   resize: none
 }
 
-#form {
-  display: none;
-  z-index: 0;
+.form {
   border: 3px solid #3dc1d3;
   border-radius: 1rem;
   margin-bottom: 1rem;
-  margin-top: 4.6rem;
   background-color:#3dc1d3;
   animation-name: animateshow;
   animation-duration: 1s;
@@ -82,34 +113,40 @@ h1 {
 }
 
 .form__spinner {
-  position: relative;
-  top: -13.45rem;
   display: none;
-  z-index: 1;
+  z-index: 9999;
 
 }
 
-// // media
-// // Экстрамалые девайсы («портретные телефоны», < 576px)
-// @media (max-width: 575.98px) {
-//   h1 {
-//     font-size: 2.35rem;
-//   }
-// }
+div.dropdown-menu {
+  a:hover {
+    background-color: #138496;
+  }
+}
 
-// @media (min-width: 576px) and (max-width: 767.98px) {
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-// }
+.list {
+  min-width: 60%;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}
 
-// @media (min-width: 768px) and (max-width: 991.98px) {
+//media
 
-// }
+@media (max-width: 575.98px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
 
-// @media (min-width: 992px) and (max-width: 1199.98px) {
 
-// }
-
-
-// @media (min-width: 1200px) {
-  
-// }
+@media (max-width: 767.98px) {
+  h1 {
+    font-size: 2rem;
+  }
+}

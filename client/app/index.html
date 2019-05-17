@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,41 +15,168 @@
     
     <title>Shoping cart</title>
   </head>
+  
   <body>
-    <header class="container-fluid"><h1>Shopping cart</h1></header>
+    <header class="container-fluid">
+      <div class="header__title">
+        <h1 class="inline">Shopping cart</h1>
+      </div>
+      <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#submitForm"><i class="fas fa-sign-in-alt fa-lg"></i> Login</button>
+      <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt fa-rotate-180 fa-lg"></i> Logout</button>
+      <button type="button" class="btn btn-outline-dark" data-toggle= "modal" data-target="#registrationForm"><i class="far fa-registered fa-lg"></i> Registration</button>
+    </header>
+
     <div class="content container-fluid">
-      <div class="lists-board">
-        <button type="button" class="btn btn-info myBtn" onclick="openForm()">+</button>
-        <div id="form">  
-          <form>
-            <div class="form-group">
-              <label for="formGroupTitle">Title</label>
-              <input type="text" class="form-control" id="formGroupTitle" placeholder="Enter list's name">
+
+      <div class="modal fade" id="addingList" tabindex="-1" role="dialog" aria-labelledby="addingListLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addingListLabel">Adding list</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="form-group">
-              <label for="formGroupTitleComment">Comment</label>
-              <textarea name="" class="form-control comments" id="formGroupTitleComment" cols="30" rows="3" placeholder="Your comment"></textarea>
+            <div class="modal-body">
+              <div id="form-for-adding-lists" class="form">  
+                <form>
+                  <div class="form-group">
+                    <label for="formGroupTitle">Title</label>
+                    <input type="text" class="form-control" id="formGroupTitle" placeholder="Enter list's name">
+                  </div>
+                  <div class="form-group">
+                    <label for="formGroupTitleComment">Comment</label>
+                    <textarea name="" class="form-control comments" id="formGroupTitleComment" cols="30" rows="3" placeholder="Your comment"></textarea>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div class="form__btn-bar">
-            <button type="button" class="btn btn-info btn-bar" onclick="closeForm()">Cancel</button>
-            <button type="button" class="btn btn-info btn-bar" onclick="create()">Creat</button>
+            <div class="modal-footer">
+              <div class="form__btn-bar">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info btn-bar" onclick="create()">Creat</button>
+              </div>
             </div>
-          </form>
+          </div>
         </div>
+      </div>  
         
-        <div class="spinner-border text-dark form__spinner" role="status" id="form__spinner">
-          <span class="sr-only">Loading...</span>
-        </div> 
+      
+      <div class="spinner-border text-dark form__spinner" role="status" id="form__spinner">
+        <span class="sr-only">Loading...</span>
+      </div> 
 
-        <!-- <div class="alert alert-danger" role="alert">
-          Это уведомление об опасности — check it out!
-        </div> -->
+      <div class="modal fade" id="submitForm" tabindex="-1" role="dialog" aria-labelledby="submitFormLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="submitFormLabel">Login form</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="submit-form" class="form">  
+                <form>
+                  <div class="form-group">
+                    <label for="inputLogin">Login</label>
+                    <input type="login" class="form-control" id="inputLogin" placeholder="Create a username">
+                    <small id="emailHelp" class="form-text text-muted">This name will be visible to other users.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                  </div>
 
+                  <div class="form-group form-check">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="form__btn-bar">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-info btn-bar">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
+      <div class="modal fade" id="registrationForm" tabindex="-1" role="dialog" aria-labelledby="registrationForm" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="registrationForm">Registration</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="registration-form" class="form">  
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputName">Name</label>
+                    <input type="name" class="form-control" id="exampleInputName" placeholder="Enter your name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputLogin">Login</label>
+                    <input type="name" class="form-control" id="exampleInputLogin" placeholder="Create a username">
+                    <small id="emailHelp" class="form-text text-muted">This name will be visible to other users.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="form__btn-bar">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-info btn-bar" onclick="regNewUser()">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lists-board">  
+        <div class="underHeader"></div>
+        <button type="button" class="btn btn-info myBtn" data-toggle="modal" data-target="#addingList">+</button>  
+        
+        <div class="card list">
+          <div class="card-header">
+            <a href="#"><h5 class="inline">Название списка</h5></a>
+            <div class="btn-group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Delete</a>
+                  <a class="dropdown-item" href="#">Rename</a>
+                  <a class="dropdown-item" href="#">Share</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something important</a>
+                </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text"> shoplable shoplable </p>
+          </div>
+        </div>      
+
+      </div>
+    
+    
+    
     </div>
-    
-    
+       
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

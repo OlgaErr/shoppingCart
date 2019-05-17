@@ -48,6 +48,7 @@ app.post('/api/users', function(req,res){
     function (err, result) {
       if (err) {
         // Передача ошибки в обработчик express
+        console.log(err);
         return next(err);
       }
       res.json(result.rows[0]);
