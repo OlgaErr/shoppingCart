@@ -15,12 +15,12 @@ html {
 
 .inline {
   display: inline;
-  margin-right: 1rem;
 }
 
 @background-color: #3dc1d3;
 
 header {
+  min-width: 362px;
   background-color: @background-color;
   text-align: center;
   text-transform: uppercase;
@@ -105,7 +105,7 @@ h1 {
   margin: 0 0.25rem 1rem;
   display: block;
   float: right;
-}
+} 
 
 .form__spinner {
   display: none;
@@ -126,24 +126,74 @@ div.dropdown-menu {
 }
 
 .list {
-  min-width: 60%;
+  width: 80%;
   margin-top: 1rem;
   border-radius: 1rem;
+  justify-self: center; 
 }
+
+#lists {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-auto-rows: 1fr;  
+}
+
+.header__btn-bar {
+  margin-left: 3rem;
+}
+
 
 
 
 //media
 
+
+
 @media (max-width: 575.98px) {
   h1 {
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
+  .userStatus {
+    display: none;
+  }
+
+  #lists {
+    grid-template-columns: 100%;
+  }
+
+  .fa-ellipsis-v {
+    padding: 0.3rem;
+    border: 1px solid #000;
+    border-radius: 0.2rem;
+    margin-left: 0.5rem;
+  }
+
+
 }
 
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .fa-ellipsis-v {
+    display: none;
+   }
+   h1 {
+     margin: 0.5rem;
+   }
+}
 
-@media (max-width: 767.98px) {
+// // Средние девайсы («таблетки», >= 768px) 
+@media (min-width: 768px) {
+  .fa-ellipsis-v {
+   display: none;
+  }
   h1 {
-    font-size: 2rem;
+    margin: 1rem;
   }
-}
+ }
+
+// // Большие девайсы (большие десктопы, >= 992px)
+// @media (min-width: 992px) and (max-width: 1199.98px) { ... }
+
+// // Большие девайсы (большие десктопы, >= 1200px)
+// @media (min-width: 1200px) { ... }

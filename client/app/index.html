@@ -22,9 +22,21 @@
       <div class="header__title">
         <h1 class="inline">Shopping cart</h1>
       </div>
-      <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#submitForm"><i class="fas fa-sign-in-alt fa-lg"></i> Login</button>
-      <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt fa-rotate-180 fa-lg"></i> Logout</button>
-      <button type="button" class="btn btn-outline-dark" data-toggle= "modal" data-target="#registrationForm"><i class="far fa-registered fa-lg"></i> Registration</button>
+      <div class="btn-group">
+        <i class="fas fa-ellipsis-v" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#submitForm">Login</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#registrationForm">Registration</a>
+          <a class="dropdown-item" href="#"></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </div>
+      <div class="header__btn-bar">
+        <button type="button" class="btn btn-outline-dark userStatus" data-toggle="modal" data-target="#submitForm"><i class="fas fa-sign-in-alt fa-lg"></i> <span class="userStatus"></span></button>
+        <button type="button" class="btn btn-outline-dark userStatus"><i class="fas fa-sign-in-alt fa-rotate-180 fa-lg"></i> <span class="userStatus"></span></button>
+        <button type="button" class="btn btn-outline-dark userStatus" data-toggle= "modal" data-target="#registrationForm"><i class="far fa-registered fa-lg"></i> <span class="userStatus"></span></button>
+      </div>
     </header>
 
     <div class="content container-fluid">
@@ -151,14 +163,14 @@
 
       <div id="lists-board">  
         <button type="button" class="btn btn-info myBtn" data-toggle="modal" data-target="#addingList">+</button>  
-
-        <template id="card">
-          <div class="card list">
-            <div class="card-header">
-              
-              <a href="#"><h5 class="inline"></h5></a><span class="counter">1/5</span>
-              
-              <div class="btn-group">
+        <div id="lists">
+          <template id="card">
+            <div class="card list">
+              <div class="card-header">
+                
+                <a href="#"><h5 class="inline"></h5></a><span class="counter">1/5</span>
+                
+                <div class="btn-group">
                   <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Delete</a>
@@ -167,17 +179,14 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something important</a>
                   </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="shopLabel"><p class="card-text">label label</p></div>
               </div>
             </div>
-            <div class="card-body">
-              <div class="shopLabel"><p class="card-text">label label</p></div>
-
-              
-
-            </div>
-          </div>
-        </template>          
-
+          </template>          
+        </div>
       </div>
     
     
