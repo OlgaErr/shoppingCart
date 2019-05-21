@@ -35,23 +35,20 @@ header {
   font-weight: bold;
   display: flex;
   align-items: center;
-  // img {
-  //   position: relative;
-  //   left: 22rem;
-  //   padding-right: 0.4rem;
-  // }
+}
+
   img:hover {  
     cursor: pointer;
     outline: 3px solid #2d3436;
     padding-right: 0.4rem;
   }
-}
+
 .btn {
   margin-right: 0.5rem;
 }
 
 .content {
-  height: 100vh;
+  height: auto;
   background: lighten(@background-color, 40%);
 }
 
@@ -59,9 +56,10 @@ h1 {
   margin-bottom: 0;
 }
 
-.lists-board {
+#lists-board {
   margin: 0 auto;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   width: 80vw;
   display: flex;
   flex-direction: column;
@@ -69,12 +67,9 @@ h1 {
   background: lighten(@background-color, 10%);
 }
 
-.underHeader {
-  height: 3rem;
-}
 .myBtn {
   display: block;
-  margin-top: 1rem;
+  margin-top: 4rem;
   border-radius: 50%;
   height: 3rem;
   font: 2em bolder;
@@ -135,6 +130,8 @@ div.dropdown-menu {
   margin-top: 1rem;
   border-radius: 1rem;
 }
+
+
 
 //media
 

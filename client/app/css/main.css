@@ -30,7 +30,7 @@ header {
   display: flex;
   align-items: center;
 }
-.header__login img:hover {
+img:hover {
   cursor: pointer;
   outline: 3px solid #2d3436;
   padding-right: 0.4rem;
@@ -39,27 +39,25 @@ header {
   margin-right: 0.5rem;
 }
 .content {
-  height: 100vh;
+  height: auto;
   background: #e3f6f9;
 }
 h1 {
   margin-bottom: 0;
 }
-.lists-board {
+#lists-board {
   margin: 0 auto;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: #67cedc;
 }
-.underHeader {
-  height: 3rem;
-}
 .myBtn {
   display: block;
-  margin-top: 1rem;
+  margin-top: 4rem;
   border-radius: 50%;
   height: 3rem;
   font: 2em bolder;

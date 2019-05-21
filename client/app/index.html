@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <link rel="stylesheet" href="css/main.css">
+
     
     <title>Shoping cart</title>
   </head>
@@ -148,28 +149,34 @@
         </div>
       </div>
 
-      <div class="lists-board">  
-        <div class="underHeader"></div>
+      <div id="lists-board">  
         <button type="button" class="btn btn-info myBtn" data-toggle="modal" data-target="#addingList">+</button>  
-        
-        <div class="card list">
-          <div class="card-header">
-            <a href="#"><h5 class="inline">Название списка</h5></a>
-            <div class="btn-group">
-                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Delete</a>
-                  <a class="dropdown-item" href="#">Rename</a>
-                  <a class="dropdown-item" href="#">Share</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something important</a>
-                </div>
+
+        <template id="card">
+          <div class="card list">
+            <div class="card-header">
+              
+              <a href="#"><h5 class="inline"></h5></a><span class="counter">1/5</span>
+              
+              <div class="btn-group">
+                  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Delete</a>
+                    <a class="dropdown-item" href="#">Rename</a>
+                    <a class="dropdown-item" href="#">Share</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something important</a>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="shopLabel"><p class="card-text">label label</p></div>
+
+              
+
             </div>
           </div>
-          <div class="card-body">
-            <p class="card-text"> shoplable shoplable </p>
-          </div>
-        </div>      
+        </template>          
 
       </div>
     

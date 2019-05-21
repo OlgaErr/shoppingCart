@@ -1,3 +1,5 @@
+
+
 function setFocus(elem) {
   elem.focus();
 }
@@ -11,8 +13,13 @@ function showElem(elem) {
 }
 
 function create() {
-  const spinner = document.getElementById('form__spinner');
-  spinner.style.display = 'block';
+  const template = document.querySelector('#card');
+  const clone = template.content.cloneNode(true);
+  const h5 = clone.querySelectorAll('h5');
+  h5[0].innerHTML = document.getElementById('formGroupTitle').value;
+  template.parentNode.appendChild(clone);
+
+
 }
 
 function formOfSubmit() {
@@ -33,8 +40,8 @@ function regNewUser() {
   const email = document.getElementById('exampleInputEmail').value;
 
 
-  const b = JSON.stringify({ 
-    user, password, name, group: '', email 
+  const b = JSON.stringify({
+    user, password, name, group: '', email,
   });
   fetch('/api/users', {
     method: 'post',
