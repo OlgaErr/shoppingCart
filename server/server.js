@@ -22,7 +22,7 @@ app.get('/api/users', function(req, res){
   client.query('SELECT * FROM users;', [], function (err, result) {
     if (err) {
       // Передача ошибки в обработчик express
-      return next(err)
+      return res.status(500).json(err);
     }
     res.json(result.rows)
   })
@@ -48,8 +48,7 @@ app.post('/api/users', function(req,res){
     function (err, result) {
       if (err) {
         // Передача ошибки в обработчик express
-        console.log(err);
-        return next(err);
+        return res.status(500).json(err);
       }
       res.json(result.rows[0]);
   })
@@ -59,7 +58,7 @@ app.get('/api/users/:user_id', function(req, res){
   client.query(`SELECT * FROM users WHERE user_id = ${req.params.user_id};`, [], function (err, result) {
     if (err) {
       // Передача ошибки в обработчик express
-      return next(err)
+      return res.status(500).json(err);
     }
     res.json(result.rows)
   })
@@ -85,7 +84,7 @@ app.post('/api/users/:user_id/lists', function(req,res){
     function (err, result) {
       if (err) {
         // Передача ошибки в обработчик express
-        return next(err);
+        return res.status(500).json(err);
       }
       res.json(result.rows[0]);
   })
@@ -103,7 +102,7 @@ app.get('/api/users/:user_id/lists', function(req, res){
   client.query(`SELECT * FROM lists WHERE user_id = ${req.params.user_id};`, [], function (err, result) {
     if (err) {
       // Передача ошибки в обработчик express
-      return next(err)
+      return res.status(500).json(err);
     }
     res.json(result.rows)
   })
@@ -113,7 +112,7 @@ app.get('/api/lists', function(req, res){
   client.query(`SELECT * FROM lists;`, [], function (err, result) {
     if (err) {
       // Передача ошибки в обработчик express
-      return next(err)
+      return res.status(500).json(err);
     }
     res.json(result.rows)
   })
@@ -123,7 +122,7 @@ app.get('/api/lists/:list_id', function(req, res){
   client.query(`SELECT * FROM lists WHERE list_id = ${req.params.list_id};`, [], function (err, result) {
     if (err) {
       // Передача ошибки в обработчик express
-      return next(err)
+      return res.status(500).json(err);
     }
     res.json(result.rows)
   })
@@ -146,9 +145,22 @@ app.patch('/api/lists/:list_id', function(req, res){
   client.query(`UPDATE lists SET archived = ${archived} WHERE list_id = ${req.params.list_id} RETURNING *;`, [], function (err, result) {
     if (err) {
       // Передача ошибки в обработчик express
-      return next(err)
+      return res.status(500).json(err);
     }
-    res.json(result.rows)
+    res.json(result.rows);
+  })
+});
+
+//if you will get 202 status that means that list was successfully deleted
+app.delete('/api/lists/:list_id', function(req, res){
+  client.query(`DELETE FROM lists WHERE "list_id" = ${req.params.list_id};`,
+    [],
+    function (err, result) {
+      if (err) {
+        // Передача ошибки в обработчик express
+        return res.status(500).json(err);
+      }
+      res.status(202).json([]);  //if ok then return empty array
   })
 });
 
@@ -160,7 +172,7 @@ app.post('/api/categories', function(req,res){
     function (err, result) {
       if (err) {
         // Передача ошибки в обработчик express
-        return next(err);
+        return res.status(500).json(err);
       }
       res.json(result.rows[0]);
   })
@@ -170,7 +182,7 @@ app.get('/api/categories', function(req, res){
   client.query(`SELECT * FROM category;`, [], function (err, result) {
     if (err) {
       // Передача ошибки в обработчик express
-      return next(err)
+      return res.status(500).json(err);
     }
     res.json(result.rows)
   })
@@ -184,7 +196,7 @@ app.post('/api/products', function(req,res){
     function (err, result) {
       if (err) {
         // Передача ошибки в обработчик express
-        return next(err);
+        return res.status(500).json(err);
       }
       res.json(result.rows[0]);
   })
@@ -194,7 +206,7 @@ app.get('/api/products', function(req, res){
   client.query(`SELECT * FROM products;`, [], function (err, result) {
     if (err) {
       // Передача ошибки в обработчик express
-      return next(err)
+      return res.status(500).json(err);
     }
     res.json(result.rows)
   })
@@ -207,7 +219,7 @@ app.get('/api/categoryandproducts', function(req, res){
     function (err, result) {
       if (err) {
         // Передача ошибки в обработчик express
-        return next(err)
+        return res.status(500).json(err);
       }
       res.json(result.rows)
   })
@@ -234,7 +246,7 @@ app.post('/api/lists/:list_id/elements', function(req,res){
     function (err, result) {
       if (err) {
         // Передача ошибки в обработчик express
-        return next(err);
+        return res.status(500).json(err);
       }
       res.json(result.rows[0]);
   })
@@ -244,7 +256,7 @@ app.get('/api/lists/:list_id/elements', function(req, res){
   client.query(`SELECT position_id, category_name, product_name, amount, price, shop, discount FROM elements WHERE list_id = ${req.params.list_id};`, [], function (err, result) {
     if (err) {
       // Передача ошибки в обработчик express
-      return next(err)
+      return res.status(500).json(err);
     }
     res.json(result.rows)
   })
@@ -260,7 +272,7 @@ app.delete('/api/lists/:list_id/elements/:position_id', function(req, res){
     function (err, result) {
       if (err) {
         // Передача ошибки в обработчик express
-        return next(err)
+        return res.status(500).json(err);
       }
       res.json(result.rows)  //if ok then return empty array
   })
