@@ -17,6 +17,10 @@ html {
   display: inline;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 @background-color: #3dc1d3;
 
 header {
@@ -25,7 +29,7 @@ header {
   text-align: center;
   text-transform: uppercase;
   color: #2d3436;
-  position: fixed;
+  // position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,7 +129,16 @@ div.dropdown-menu {
   align-items: center;
 }
 
-.list {
+.counter {
+  margin-right: 0.5rem;
+}
+
+.fa-comment-alt {
+  float: right;
+  margin-right: 0.7rem; 
+  margin-top: 0.4rem; 
+}
+.lists-board__list {
   width: 80%;
   margin-top: 1rem;
   border-radius: 1rem;
@@ -135,8 +148,8 @@ div.dropdown-menu {
 #lists {
   height: auto;
   width: 100%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 50% 50%;
   grid-auto-rows: 1fr;  
 }
 
@@ -144,7 +157,19 @@ div.dropdown-menu {
   margin-left: 3rem;
 }
 
+#openCard {
+  display: none;
+  margin: 0 auto;
+  height: auto;
+  min-height: 100vh;
+  width: 80vw;
+  background: lighten(@background-color, 10%);
+}
 
+.openCard__list {
+  width: 50vw;
+  margin: 1rem auto;
+}
 
 
 //media
@@ -169,31 +194,49 @@ div.dropdown-menu {
     border-radius: 0.2rem;
     margin-left: 0.5rem;
   }
-
-
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   .fa-ellipsis-v {
     display: none;
-   }
-   h1 {
-     margin: 0.5rem;
-   }
+  }
+  h1 {
+    margin: 0.5rem;
+  }
+  #lists {
+  grid-template-columns: 50% 50%;
+  } 
 }
 
 // // Средние девайсы («таблетки», >= 768px) 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
   .fa-ellipsis-v {
    display: none;
   }
   h1 {
     margin: 1rem;
   }
+  #lists {
+    grid-template-columns: 50% 50%;
+    }
  }
 
 // // Большие девайсы (большие десктопы, >= 992px)
-// @media (min-width: 992px) and (max-width: 1199.98px) { ... }
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  #lists {
+    grid-template-columns: 33% 33% 33%;
+  }
+  .fa-ellipsis-v {
+    display: none;
+   }
+}
 
 // // Большие девайсы (большие десктопы, >= 1200px)
-// @media (min-width: 1200px) { ... }
+@media (min-width: 1200px) {
+  #lists {
+    grid-template-columns: 33% 33% 33%;
+    }
+  .fa-ellipsis-v {
+    display: none;
+    }  
+}

@@ -58,8 +58,8 @@
                     <input type="text" class="form-control" id="formGroupTitle" placeholder="Enter list's name">
                   </div>
                   <div class="form-group">
-                    <label for="formGroupTitleComment">Comment</label>
-                    <textarea name="" class="form-control comments" id="formGroupTitleComment" cols="30" rows="3" placeholder="Your comment"></textarea>
+                    <label for="formGroupComment">Comment</label>
+                    <textarea name="" class="form-control comments" id="formGroupComment" cols="30" rows="3" placeholder="Your comment"></textarea>
                   </div>
                 </form>
               </div>
@@ -67,7 +67,7 @@
             <div class="modal-footer">
               <div class="form__btn-bar">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-info btn-bar" onclick="create()">Creat</button>
+                <button type="button" class="btn btn-info btn-bar" onclick="createList()">Creat</button>
               </div>
             </div>
           </div>
@@ -165,15 +165,15 @@
         <button type="button" class="btn btn-info myBtn" data-toggle="modal" data-target="#addingList">+</button>  
         <div id="lists">
           <template id="card">
-            <div class="card list">
+            <div class="card lists-board__list">
               <div class="card-header">
                 
-                <a href="#"><h5 class="inline"></h5></a><span class="counter">1/5</span>
+                <a href="#" onclick="openList()"><h5 class="inline"></h5></a><span class="counter">1/5</span>
                 
                 <div class="btn-group">
                   <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Delete</a>
+                    <a class="dropdown-item" href="#" onclick="deleteList()">Delete</a>
                     <a class="dropdown-item" href="#">Rename</a>
                     <a class="dropdown-item" href="#">Share</a>
                     <div class="dropdown-divider"></div>
@@ -182,11 +182,24 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="shopLabel"><p class="card-text">label label</p></div>
+                <div class="shopLabel inline-block"><p class="card-text">label label</p></div>
+                <i class="far fa-comment-alt fa-lg"></i>
               </div>
             </div>
           </template>          
         </div>
+      </div>
+      <div id="openCard">
+        <div class="list-group openCard__list ">
+          <a href="#" class="list-group-item list-group-item-action active">
+            Cras justo odio
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+          <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+          <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+          <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+        </div>
+        
       </div>
     
     
